@@ -31,8 +31,6 @@
 	</head>
 
 	<body>
-
-		<div class="reveal">
 <div class="slides">
     <section>
         <h1>Scala</h1>
@@ -47,7 +45,7 @@
 </li>
 <li>From Java to Scala</li>
 <li>
-<br>
+    <br>
 </li>
 <li>
 <br>
@@ -83,56 +81,113 @@
 </div>
 </section>
 <section>
-    <h2>Scala AS A SCRIPTING LANGUAGE</h2>
-    <p>
-    <br>
-</p>
-<pre><code>// HelloWorld.scala<br>Console.println("Hello world");<br><br>// strip the boilerplate<br>println "Shorter!"<br><br><br>bash$ scala HelloWorld.scala<br>Hello World<br>Shorter!<br><br><br>bash$ scala -e 'println("Hello World")'<br>Hello World<br>Shorter!<br></code></pre>
+    <h2>A better language</h2>
+<ul>
+<li>simpler (less boilerplate)</li>
+<li>more powerful abstractions</li>
+<ul>
+    <li>language that evolves with the demand<br>
+</li>
+</ul>
+<li>immutability + thread safe<br>
+</li>
+</ul>
 </section>
 <section>
-    <h2>Scala "SHELL" (REPL)</h2>
-<pre><code> bash$ scala<br>Welcome to Scala version 2.10.1.final (Java HotSpot(TM) 64-Bit Server VM, Java 1.6.0_22).<br>Type in expressions to have them evaluated.<br>Type :help for more information.<br><br>scala&gt; class Foo { def bar = "baz" }<br>defined class Foo<br><br>scala&gt; val f = new Foo<br>f: Foo = Foo@51707653<br><br>scala&gt; f.bar<br>res2: java.lang.String = baz</code></pre>
+    <h2>Hello World<span style="color: rgb(220, 220, 220); font-family: monospace; text-align: left; white-space: pre-wrap;"> </span>
+</h2>
+<div>
+<pre><code>package hello;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		System.out.println("Hello world");
+	}
+
+}</code></pre>
+</div>
+<div>
+<br>
+</div>
+<div>
+<pre><code>package hello
+
+object HelloWorld {
+ def main(args:Array[String]) {
+		System.out.println("Hello world");
+	}
+}</code></pre>
+</div>
+<div>
+<span>Same bytecode is generated.&nbsp;</span>
+<br>
+</div>
+<div>Calling java classes from Scala(System)</div>
+</section>
+<section>
+    <h2>Hello World</h2>
+<div>Eliminate the unnecessary</div>
+<div>
+    <br>
+</div>
+<div>
+<pre><code> println("Hello world")</code></pre>
+</div>
+<div>No need to wrap in a class an then in a function.</div>
+<div>Still the same bytecode is generated</div>
+</section>
+<section>
+    <h2>Scala AS A SCRIPTING LANGUAGE</h2>
+<p>
+    <br>
+</p>
+<pre><code>// HelloWorld.scala<br>println("Hello world!")<br><br><br>bash$ scala HelloWorld.scala<br>Hello world!<br><br><br>bash$ scala -e 'println("Hello World")'<br>Hello World<br></code></pre>
+</section>
+<section>
+<h2>Scala "SHELL" (REPL) / Worksheet</h2>
+<pre><code>bash$ scala<br>Welcome to Scala version 2.10.1.final (Java HotSpot(TM) 64-Bit Server VM, Java 1.6.0_22).<br>Type in expressions to have them evaluated.<br>Type :help for more information.<br><br>scala&gt; class Foo { def bar = "baz" }<br>defined class Foo<br><br>scala&gt; val f = new Foo<br>f: Foo = Foo@51707653<br><br>scala&gt; f.bar<br>res2: java.lang.String = baz</code></pre>
 </section>
 <section>
     <h2>JAVA OF THE FUTURE </h2>
-    <div align="left">
-        <ul>
-            <li>has&nbsp; everything Java has&nbsp; (different form sometimes)<br>
-            </li>
-            <li>compiles to similar bytecode <br>
-            </li>
-            <li>completely interoperable <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </li>
-            <li>
-                <div align="left">closures ( Java 8?)</div>
-            </li>
-        </ul>
-    </div>
-    <div align="left">
-        <ul>
-            <li>traits and pattern matching ( Java X?) <br>
-            </li>
-        </ul>
-    </div>
+<div align="left">
+    <ul>
+<li>has&nbsp; everything Java has&nbsp; (different form sometimes)<br>
+</li>
+<li>compiles to similar bytecode <br>
+</li>
+<li>completely interoperable <br>
+    <br>
+    <br>
+    <br>
+</li>
+<li>Features that will be integrated in JDK<br>
+</li>
+<ul>
+<li>
+    <div align="left">closures ( Java 8?)</div>
+</li>
+<li>
+<div align="left">traits and pattern matching ( Java X?) <br>
+</div>
+</li>
+</ul>
+</ul>
+</div>
 </section>
 <section>
     <h2>Kitchen-SINK LANGUAGE?</h2>
-    <blockquote>
-        <p>Have the same sort of constructs work for very small as well as very large programs.<br>
-    </p>
-    <p>
-    <br>
+<blockquote>
+<p>Have the same sort of constructs work for very small as well as very large programs.<br>
+</p>
+<p>
+<br>
 </p>
 </blockquote>
 <p>
 <br>
 </p>
 <blockquote>
-    <p>Focus on <b>abstraction</b> and <b>composition</b>, so that users can implement their own specialized features as needed.</p>
+<p>Focus on <b>abstraction</b> and <b>composition</b>, so that users can implement their own specialized features as needed.</p>
 </blockquote>
 </section>
 <section>
@@ -140,124 +195,124 @@
 <p>
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
-    <colgroup>
-        <col width="50%">
-            <col width="50%">
-            </colgroup>
-            <tbody>
-                <tr>
-                    <td>
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<tbody>
+<tr>
+<td>
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span>Scala adds</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td>
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span>Scala removes</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                 </tr>
-                <tr>
-                    <td class="ce3">
+<tr>
+<td class="ce3">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">+ a pure object system</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td class="ce4">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">- static members</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                 </tr>
-                <tr>
-                    <td class="ce5">
+<tr>
+<td class="ce5">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">+ operators overloading</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td class="ce6">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">- primitive types</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                 </tr>
-                <tr>
-                    <td class="ce7">
+<tr>
+<td class="ce7">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">+ closures </span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td class="ce8">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">- break, continue</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                 </tr>
-                <tr>
-                    <td class="ce11">
+<tr>
+<td class="ce11">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">+ existential types</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td class="ce12">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">- wildcards</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                 </tr>
-                <tr>
-                    <td class="ce13">
+<tr>
+<td class="ce13">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">+ abstract types</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td class="ce14">
                         <ul>
-                            <li>
+<li>
                                 <p style="margin-left: 0cm;">
                                     <span style="display: block; float: left; min-width: 0cm;">-</span>
                                     <span class="T32">&nbsp;</span>
@@ -266,21 +321,21 @@
                                 </p>
                             </li>
                         </ul>
-                    </td>
+</td>
                 </tr>
-                <tr>
-                    <td class="ce15">
+<tr>
+<td class="ce15">
                         <ol>
-                            <li>
+<li>
                                 <p>
                                     <span class="T32">+ pattern matching</span>
                                 </p>
                             </li>
                         </ol>
-                    </td>
+</td>
                     <td class="ce16">
                         <ul>
-                            <li>
+<li>
                                 <p style="margin-left: 0cm;">
                                     <span style="display: block; float: left; min-width: 0cm;">-</span>
                                     <span class="T33">&nbsp;</span>
@@ -289,66 +344,66 @@
                                 </p>
                             </li>
                         </ul>
-                    </td>
+</td>
                 </tr>
-            </tbody>
-        </table>
-        <p>
+</tbody>
+</table>
+<p>
     </p>
 <br>Modeled in libraries:<br>&nbsp;&nbsp; assert, enums, properties, events, actors, using, queries, …<br>
-<p>
+    <p>
 </p>
 
 
 </section>
     <section>
         <h2>JAVA OF THE FUTURE <br>
-        </h2>
-        <p>
+</h2>
+<p>
         <br>
-    </p>
-<pre><code>public class Person {<br>   private String name;<br>   private Integer age;<br>   <br>   public Person(String name, Integer age) {<br>     this.name = name;<br>     this.age = age;<br>   }<br>   public String getName() {<br>      return this.name;<br>   }<br>   public void setName(String name) {<br>      this.name = name;<br>   }<br>//...<br>}<br></code></pre>
-<pre><code> <br>class Person(var name: String, var age: Int)<br><br></code></pre>
+</p>
+<pre><code>public class Person {<br>   private String name;<br>   private Integer age;<br><br>   public Person(String name, Integer age) {<br>     this.name = name;<br>     this.age = age;<br>   }<br>   public String getName() {<br>      return this.name;<br>   }<br>   public void setName(String name) {<br>      this.name = name;<br>   }<br>//...<br>}<br></code></pre>
+<pre><code> <br>class Person(var name: String, var age: Int)<br><br></code>    </pre>
 </section>
 <section>
     <h2>Java of the FUTURE</h2>
-    <p>Eclipse can generate getter and setters for you</p>
-    <p>Or you can code-generate (adapters, tests, etc...)<br>
+<p>Eclipse can generate getter and setters for you</p>
+<p>Or you can code-generate (adapters, tests, etc...)<br>
 </p>
 <p>
 <br>
 </p>
 <p>But&nbsp;&nbsp; :</p>
 <ul>
-    <li>generated blocks/classes/tests can be noisy</li>
-    <li>hassle to maintain <br>
-    </li>
+<li>generated blocks/classes/tests can be noisy</li>
+<li>hassle to maintain <br>
+</li>
 </ul>
 <br>
 </section>
 <section>
     <h2>CLASSES (2)<br>
-    </h2>
-    <div align="left">
-        <ul>
-            <li>default values<br>
-            </li>
-        </ul>
-        <br>
-<pre><code></code><code>class Person(var name: String, var age: Int = 18)</code>    </pre>
-    <ul>
-        <li>constraints / validation<br>
-        </li>
-    </ul>
+</h2>
+<div align="left">
+<ul>
+    <li>default values<br>
+</li>
+</ul>
+<br>
+<pre><code></code><code>class Person(var name: String, var age: Int = 18)</code></pre>
+<ul>
+<li>constraints / validation<br>
+</li>
+</ul>
 <pre><code></code><code>class Person(var name: String, var age) {<br>    require age&gt;18<br>}</code></pre>
 <ul>
-    <li>case classes =&gt; pattern matching, factory, equals, hashCode</li>
+<li>case classes =&gt; pattern matching, factory, equals, hashCode</li>
 </ul>
 </div>
-<pre><code></code><code>case class Person(var name: String, var age) <br></code><br><code>var p = Person("Andrei",0)<br><br>var (nom,age) = p<br>println nom<br></code></pre>
+<pre><code></code><code>case class Person(var name: String, var age) <br></code><code>var p = Person("Andrei",0)<br><br>var (nom,age) = p<br>println nom<br></code></pre>
 </section>
 <section>
-    <h2>Definitions</h2>
+<h2>Definitions</h2>
 <pre><code>int x = expression<br>final String x = expression<br><br>int fun(int x) { <br>  return result<br>}<br><br></code></pre>
 <p>
 <br>
@@ -356,53 +411,53 @@
 <pre><code>var x: Int = expression<br>val x: String = expression<br><br><br>def fun(x: Int): Int = {<br>  result<br>}<br><br></code></pre>
 </section>
 <section>
-    <h2>Definitions(2)</h2>
-<pre><code></code><code>public int x = 0<br>public final HashMap&lt;String, Pair&lt;String, List&lt;Char&gt;&gt;&gt; y = …</code></pre>
+<h2>Definitions(2)</h2>
+<pre><code></code><code>public int x = 0<br>public final HashMap&lt;String, Pair&lt;String, List&lt;Char&gt;&gt;&gt; y = …</code><code>public final HashMap&lt;&gt;y = something()</code></pre>
 <p>
 <br>
 </p>
-<pre><code>var x = 0<br>val y: HashMap[String, Pair[String,List[Char]]] = … <br></code></pre>
+<pre><code>var x = 0<br>val y: HashMap[String, Pair[String,List[Char]]] = … <br></code><code>val y = something()// the compiler can infer the type for you</code></pre>
 </section>
 <section>
-    <h2>Expressions and CLASSES<br>
-    </h2>
+<h2>Expressions and CLASSES<br>
+</h2>
 <pre><code></code><code>obj.meth(arg);<br>obj meth arg<br><br>if (cond) expr1 else expr2<br><br>expr match {<br>    case pat1 =&gt; expr1<br>    ....<br>    case patn =&gt; exprn<br>} </code></pre>
-<pre><code><br>class Sample {<br>    def instMeth() = println "toto"<br>}<br><br>object Sample {<br>    def staticMeth() = println "toto"<br>}</code></pre>
+<pre><code><br>class Sample {<br>    def instMeth() = println("toto")<br>}<br><br>object Sample {<br>    def staticMeth() = println("toto")<br>}</code></pre>
 </section>
 <section>
     <h2>What makes Scala scalable?</h2>
-    <p>strong typing, inference, traits, little boilerplate…</p>
-    <p style="position: absolute; width: 907px; height: 57px; z-index: 4; left: 11px; top: 182px;" class="absolute-element">
-        <b>integration of functional and object-oriented programming</b>
-    </p>
-    <p>
-    <br>
+<p>strong typing, inference, traits, little boilerplate…</p>
+<p style="position: absolute; width: 907px; height: 57px; z-index: 4; left: 11px; top: 182px;" class="absolute-element">
+    <b>integration of functional and object-oriented programming</b>
+</p>
+<p>
+<br>
 </p>
 <p>
 <br>
 </p>
 <p style="position: absolute; width: 269px; height: 57px; z-index: 4; left: 57px; top: 282px;" class="absolute-element">
-    <font color="rgb(204, 0, 0)">
-        <b>Object-Oriented</b>
-    </font>
-    <br>
+<font color="rgb(204, 0, 0)">
+    <b>Object-Oriented</b>
+</font>
+<br>
 </p>
 <p style="position: absolute; width: 338px; height: 291px; z-index: 4; left: 17px; top: 348px;" class="absolute-element">
-    <font style="font-size: 24px;">Makes it easy to adapt and extend <br>complex systems, using:<br>&nbsp;subtyping and inheritance<br>&nbsp;dynamic configurations<br>&nbsp;classes as partial abstractions<br>
-    </font>
-    <br>
+<font style="font-size: 24px;">Makes it easy to adapt and extend <br>complex systems, using:<br>&nbsp;subtyping and inheritance<br>&nbsp;dynamic configurations<br>&nbsp;classes as partial abstractions<br>
+</font>
+<br>
 </p>
 <p style="position: absolute; width: 168px; height: 57px; z-index: 4; left: 638px; top: 281px;" class="absolute-element">
-    <font color="rgb(204, 0, 0)">Functional</font>
+<font color="rgb(204, 0, 0)">Functional</font>
 </p>
 <p style="position: absolute; width: 303px; height: 291px; z-index: 4; left: 584px; top: 341px;" class="absolute-element">
-    <font style="font-size: 24px;">build from simple parts, using<br>&nbsp;higher-order functions,<br>&nbsp;algebraic types and <br>&nbsp; pattern matching,<br>&nbsp;parametric polymorphism.</font>
-    <br>
+<font style="font-size: 24px;">build from simple parts, using<br>&nbsp;higher-order functions,<br>&nbsp;algebraic types and <br>&nbsp; pattern matching,<br>&nbsp;parametric polymorphism.</font>
+<br>
 </p>
 </section>
 <section>
     <h2>SCALA is Object ORIENTED<br>
-    </h2>Every value is an object<br>
+</h2>Every value is an object<br>
 <pre><code> val x = 1</code></pre>Every operation is a method call<br>
 <pre><code> val y = 1 + 2<br> val z = (1).+(2)<br></code></pre>
 <br>
@@ -415,37 +470,37 @@
 </section>
 <section>
     <h2>Some code is better if functional</h2>
-    <p>
+<p>
     <br>
 </p>
 <pre><code>import
- java.util.ArrayList;   
-  <br>...   
-  <br>Person[]  
- people;    
-  <br>Person[]  
- minors;    
-  <br>Person[]  
- adults;    
-  <br>ArrayList&lt;Person&gt;   
+ java.util.ArrayList;	
+  <br>...	
+  <br>Person[]	
+ people;	
+  <br>Person[]	
+ minors;	
+  <br>Person[]	
+ adults;	
+  <br>ArrayList&lt;Person&gt;	
  minorsList
  = 
  new
- ArrayList&lt;Person&gt;(); 
-  ArrayList&lt;Person&gt;   
+ ArrayList&lt;Person&gt;();	
+  ArrayList&lt;Person&gt;	
  adultsList
  = 
  new
- ArrayList&lt;Person&gt;(); 
+ ArrayList&lt;Person&gt;();	
   <br>for
- (int   
+ (int	
  i
  =
  0;
  i
  &lt;
  people.length;
- i++){  
+ i++){	
   <br>   
  (people[i].age
  &lt;
@@ -454,20 +509,20 @@
  minorsList
  :
  adultsList)
-.add(people[i]);    
+.add(people[i]);	
 <br>minors
- =  
- minorsList.toArray(people);    
+ =	
+ minorsList.toArray(people);	
   <br>adults
- =  
- adultsList.toArray(people);    
+ =	
+ adultsList.toArray(people);	
   <br></code></pre>
 <p>
 <br>
 </p>
 <pre><code>val
  people:
- Array[Person]  
+ Array[Person]	
   <br>val
  (minors,
  adults)
@@ -484,10 +539,10 @@
 </section>
 <section>
     <h2>Scala is Functional</h2>
-    <p>Every function is a value<br>
+<p>Every function is a value<br>
 </p>
 <pre><code>val
- f =    
+ f =	
 (p: Person) =&gt; p.age &lt; 18<br>val (minors, adults) = people partition (f)<br></code></pre>
 <p>Functions can be anonymous</p>
 <p> </p>
@@ -498,7 +553,7 @@
 </section>
 <section>
     <h2>Functions are objects</h2>
-    <p>...with an apply method<br>
+<p>...with an apply method<br>
 </p>
 <pre><code>val f = (x: Int) =&gt; x + 1<br>val n = f(1)<br></code></pre>
 <pre><code>trait Function1[-S, +T] {<br> def apply(x: S): T<br>}</code></pre>
@@ -513,38 +568,38 @@
 </section>
 <section>
     <h2>Title</h2>
-    <p>&nbsp;&nbsp;&nbsp; <br>Lightweight and concise. <br>
+<p>&nbsp;&nbsp;&nbsp; <br>Lightweight and concise. <br>
     <br>
 </p>
 <ul>
-    <li>semicolon inference</li>
-    <li>type inference,</li>
-    <li>lightweight classes</li>
-    <li>extensible API’s</li>
-    <li>closures as control abstractions<br>
-        <br>
-    </li>
+<li>semicolon inference</li>
+<li>type inference,</li>
+<li>lightweight classes</li>
+<li>extensible API’s</li>
+<li>closures as control abstractions<br>
+<br>
+</li>
 </ul>
 <p>Reduction in&nbsp; LOC (&gt; 2x)<br>
 </p>
 </section>
 <section>
     <h2>A SCALABLE LANGUAGE</h2>
-    <ul>
-        <li>suitable for <b>very small</b> as well as <b>very large</b> programs<br>
-            <br>
-        </li>
-        <li>single language for <b>extension scripts</b> and the heavy lifting<br>
-            <br>
-        </li>
-        <li>
-            <b>application-specific needs</b> are handled through libraries and embedded DSL's <br>
-        </li>
-    </ul>
+<ul>
+<li>suitable for <b>very small</b> as well as <b>very large</b> programs<br>
+    <br>
+</li>
+<li>single language for <b>extension scripts</b> and the heavy lifting<br>
+    <br>
+</li>
+<li>
+<b>application-specific needs</b> are handled through libraries and embedded DSL's <br>
+</li>
+</ul>
 </section>
 <section>
-    <h2>Scalability demands extensibility</h2>
-    <p>Using an existing data type</p>
+<h2>Scalability demands extensibility</h2>
+<p>Using an existing data type</p>
 <pre><code></code><code>def factorial(x: Int): Int = <br>  if (x == 0) 1 else x * factorial(x - 1)</code></pre>
 <p>
 <br>
@@ -556,9 +611,9 @@
 </section>
 <section>
     <section>
-        <h2>Adding a BigInt</h2>
+<h2>Adding a BigInt</h2>
 <pre><code>import java.math.BigInteger<br>class BigInt(val bigInteger: BigInteger) <br>extends java.lang.Number {<br>  def + (that: BigInt) = <br>    new BigInt(this.bigInteger add that.bigInteger)<br>  def - (that: BigInt) = <br>    new BigInt(this.bigInteger subtract that.bigInteger)<br>    //...<br>}</code>    </pre>
-    <p>No difference between using a language datatype or a datatype defined in a library<br>
+<p>No difference between using a language datatype or a datatype defined in a library<br>
 </p>
 <pre><code> def factorial(x: BigInt): BigInt = <br>  if (x == 0) 1 else x * factorial(x - 1)</code></pre>
 <p>Use with care<br>
@@ -569,8 +624,8 @@
 </p>
 </section>
 <section>
-    <h2>Implementing ?: operator<br>
-    </h2>
+<h2>Implementing ?: operator<br>
+</h2>
 <pre><code>firstName = "Bart"<br>lastName = null<br>println firstName ?: "Homer"<br>println lastName ?: "Simpson"<br><br>&gt;Bart<br>&gt;Simpson<br></code></pre>
 <p>
 <br>
@@ -582,7 +637,7 @@
 </section>
 </section>
 <section>
-    <h2>Adding new control structures</h2>
+<h2>Adding new control structures</h2>
 <pre><code>val f = new BufferedReader(new FileReader(path))<br>try {<br>  println(f.readLine())<br>} finally {<br>  if (f != null) f.close()<br>}</code></pre>
 <p>Try with ressource (JDK 7)</p>
 <pre><code>//JDK7<br>try (BufferedReader br =   new BufferedReader(new FileReader(path))) {<br>        return br.readLine();<br>}<br></code></pre>
@@ -590,75 +645,42 @@
 <pre><code>using (new BufferedReader(new FileReader(path))) {<br>  f =&gt; f.readLine()<br>}</code></pre>
 </section>
 <section>
-    <h2>Adding a new COntrol Structure</h2>
-    <ul>
-        <li>don't wait to be implemented in the next JDK<br>
-        </li>
-        <li>type parameters, structural typing, closure</li>
-    </ul>
+<h2>Adding a new COntrol Structure</h2>
+<ul>
+<li>don't wait to be implemented in the next JDK<br>
+</li>
+<li>type parameters, structural typing, closure</li>
+</ul>
 <pre><code>def using[T &lt;: { def close() }]<br>         (resource: T)<br>         (block: T =&gt; Unit) {<br>  try {<br>    block(resource)<br>  } finally {<br>    if (resource != null) resource.close()<br>  }<br>}</code></pre>
 </section>
 <section>
     <section>
         <h2>Break and CONTINUE</h2>
-        <p>Scala does not have them. Why?<br>
+<p>Scala does not have them. Why?<br>
     </p>
-    <ul>
-        <li>They are a bit imperative; better use many smaller functions.</li>
-        <li>Issues how to interact with closures.</li>
-        <li>They are not needed!<br>
-        </li>
-    </ul>
-    <p>
+<ul>
+<li>They are a bit imperative; better use many smaller functions.</li>
+<li>Issues how to interact with closures.</li>
+<li>They are not needed!<br>
+</li>
+</ul>
+<p>
     <br>
 </p>
 <blockquote>
-    <p>We can support them purely in the libraries !</p>
+<p>We can support them purely in the libraries !</p>
 </blockquote>
-<pre><code>import scala.util.control.Breaks._<br>breakable {<br>  for (x &lt;- elems) {<br>    println(x * 2)<br>    if (x &gt; 0) break<br>  }<br>}    </code></pre>
+<pre><code>import scala.util.control.Breaks._<br>breakable {<br>  for (x &lt;- elems) {<br>    println(x * 2)<br>    if (x &gt; 0) break<br>  }<br>}	</code></pre>
 <p>
 <br>
 </p>
 </section>
 <section>
-    <h2>Break and CONTINUE</h2>
+<h2>Break and CONTINUE</h2>
 <pre><code>object Breaks{<br>  private class BreakException extends RuntimeException<br>  private val breakException = new BreakException<br><br>  def breakable(op: =&gt; Unit) {<br>    try{<br>       op<br>    }catch{<br>      case ex: BreakException =&gt;<br>    }<br>  }<br><br>  def break { throw breakException }<br>}<br></code></pre>
 </section>
 </section>
 </div>
-
-
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-
-		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
-
-		</script>
 
 	</body>
 </html>
